@@ -1,0 +1,54 @@
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 1rem; 
+}
+.contentHeader {
+  flex-direction: row;
+  width: 46rem;
+}
+.contentHeader div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 5rem;
+}
+
+.p1 {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.p2 {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.p1 span, .p2 span{
+  background-color: var(--gray-400);
+  padding: 0.1rem 0.6rem;
+  border-radius: 10px;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15.25rem;
+  border: 1px solid white;
+  width: 46rem;
+  border-radius: 8px;
+}
+
+.tasks img {
+  margin-bottom: 1.5rem;
+}
+
+.tasks strong, .tasks p {
+  color: var(--gray-300);
+}
