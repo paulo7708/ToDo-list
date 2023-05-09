@@ -8,14 +8,22 @@ interface bodyTask {
   status: boolean;
 }
 
-export const Task = (props: bodyTask) => {
 
+
+export const Task = (props: bodyTask) => {
+  const [divCount, setDivCount ] = useState(0)
   const [isActive, setIsActive] = useState(false);
   
   const handleClick = () => {
     
-    setIsActive(true);
-    console.log('click na div')
+    if(isActive === false){
+      setIsActive(true)
+    } else {
+      setIsActive(false)
+    }
+    
+    setDivCount(divCount +1)
+    console.log(divCount)
   }
 
   return (
