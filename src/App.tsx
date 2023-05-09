@@ -17,6 +17,7 @@ function App() {
     const nextTask = {
       key: count,
       content: newTasks,
+      status:false
     }
 
     setTasks([...tasks, nextTask ]);
@@ -51,10 +52,10 @@ function App() {
             <header className={style.contentHeader}>
               <div>
                 <p className={style.p1}>
-                  Tarefas criadas <span>0</span>
+                  Tarefas criadas <span>{tasks.length}</span>
                 </p>
                 <p className={style.p2}>
-                  Concluídas <span>0</span>
+                  Concluídas <span>{}0 de {tasks.length}</span>
                 </p>
               </div>
             </header>
@@ -70,7 +71,8 @@ function App() {
               return(
                 <Task
                 key={task.key}
-                content={task.content}/>
+                content={task.content}
+                status={false}/>
               )
             })}
           </div>
