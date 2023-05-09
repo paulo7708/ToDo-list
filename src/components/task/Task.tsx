@@ -1,15 +1,18 @@
 import style from "./Task.module.css";
 import { Circle, Trash } from "@phosphor-icons/react";
 
-export const Task = () => {
+interface bodyTask{
+  key:number,
+  content: string
+}
+export const Task = (props: bodyTask) => {
   return (
     <div className={style.taskStyle}>
       <a href="#">
         <Circle size={25} />
       </a>
       <p className={style.text}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
+        {props.content}
       </p>
       <a href="#">
         <Trash className={style.trash} size={20} />
