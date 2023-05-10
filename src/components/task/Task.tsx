@@ -8,8 +8,6 @@ interface bodyTask {
   status: boolean;
 }
 
-
-
 export const Task = (props: bodyTask) => {
   const [divCount, setDivCount ] = useState(0)
   const [isActive, setIsActive] = useState(false);
@@ -22,7 +20,9 @@ export const Task = (props: bodyTask) => {
       setIsActive(false)
     }
     
-    setDivCount(divCount +1)
+    setDivCount((state) => {
+      return state +1
+    })
     console.log(divCount)
   }
 

@@ -6,25 +6,25 @@ import clipboard from "./assets/Clipboard.svg";
 import { Task } from "./components/task/Task";
 
 function App() {
-  const [tasks, setTasks] = useState<any[]>([])
-  const [newTasks, setNewTasks] = useState('');
-  const [count, setCount] = useState(1)
-  console.log(tasks)
+  const [tasks, setTasks] = useState<any[]>([]);
+  const [newTasks, setNewTasks] = useState("");
+  const [count, setCount] = useState(1);
+  console.log(tasks);
 
-  
   function handleNewTasks() {
     event?.preventDefault();
     const nextTask = {
       key: count,
       content: newTasks,
-      status:false
-    }
+      status: false,
+    };
 
-    setTasks([...tasks, nextTask ]);
-    setNewTasks('')
-    setCount(count +1)
+    setTasks([...tasks, nextTask]);
+    setNewTasks("");
+    setCount(count + 1);
     //console.log(count)
   }
+
 
   return (
     <>
@@ -33,13 +33,13 @@ function App() {
         <form onSubmit={handleNewTasks} className={style.form}>
           <div className={style.sectionForm}>
             <textarea
-            name=""
-            placeholder="Adicione uma nova tarefa"
-            onChange={(event) => {
-              setNewTasks(event.target.value)
-            }}
-            value={newTasks}
-          />
+              name=""
+              placeholder="Adicione uma nova tarefa"
+              onChange={(event) => {
+                setNewTasks(event.target.value);
+              }}
+              value={newTasks}
+            />
             <button type="submit">
               <p>Criar</p>
               <PlusCircle size={20} />
@@ -55,25 +55,27 @@ function App() {
                   Tarefas criadas <span>{tasks.length}</span>
                 </p>
                 <p className={style.p2}>
-                  Concluídas <span>{}0 de {tasks.length}</span>
+                  Concluídas{" "}
+                  <span>
+                    {}0 de {tasks.length}
+                  </span>
                 </p>
               </div>
             </header>
 
             <div className={style.tasks}>
-              <img src={clipboard} alt="" />
-              <strong>Você ainda não tem tarefas cadastradas</strong>
-              <p>Crie tarefas e organize seus itens a fazer</p>
-              <br />
+              <div>
+                <img src={clipboard} alt="" />
+                <strong>Você ainda não tem tarefas cadastradas</strong>
+                <p>Crie tarefas e organize seus itens a fazer</p>
+              </div>
+
             </div>
 
             {tasks.map((task) => {
-              return(
-                <Task
-                key={task.key}
-                content={task.content}
-                status={false}/>
-              )
+              return (
+                <Task key={task.key} content={task.content} status={false} />
+              );
             })}
           </div>
         </section>
