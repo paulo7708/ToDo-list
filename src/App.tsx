@@ -79,12 +79,10 @@ function App() {
               </div>
             </header>
 
-            <div className={style.tasks}>
-              <div>
+            <div className={ tasks.length > 0 ? style.contentNone : style.tasks}>
                 <img src={clipboard} alt="" />
                 <strong>Você ainda não tem tarefas cadastradas</strong>
                 <p>Crie tarefas e organize seus itens a fazer</p>
-              </div>
 
             </div>
 

@@ -74,7 +74,7 @@
   border-radius: 10px;
 }
 
-.tasks div {
+.tasks {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,7 +85,7 @@
   border-radius: 8px;
 }
 
-.contentNone div{
+.contentNone {
   display: none;
 }
 .tasks img {
