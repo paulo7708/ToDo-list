@@ -9,7 +9,9 @@ function App() {
   const [tasks, setTasks] = useState<any[]>([]);
   const [newTasks, setNewTasks] = useState("");
   const [count, setCount] = useState(1);
-  console.log(tasks);
+  console.log(tasks.length);
+
+  const [data, setData] = useState(0);
 
   function handleNewTasks() {
     event?.preventDefault();
@@ -21,8 +23,6 @@ function App() {
 
     setTasks([...tasks, nextTask]);
     setNewTasks("");
-    //setCount(count + 1);
-    console.log(count)
 
     setCount((state) => {
       return state +1
@@ -35,6 +35,10 @@ function App() {
     })
 
     setTasks(tasksWithoutDeleteOne)
+  }
+
+  const onChildToParent = (childData: number) => {
+   setData(childData +1);
   }
 
   return (
@@ -69,7 +73,7 @@ function App() {
                 <p className={style.p2}>
                   Concluídas{" "}
                   <span>
-                    {}0 de {tasks.length}
+                    {data} de {tasks.length}
                   </span>
                 </p>
               </div>
@@ -86,7 +90,7 @@ function App() {
 
             {tasks.map((task) => {
               return (
-                <Task key={task.key} content={task.content} status={false} onDeleteTasks={onDeleteTasks} />
+                <Task key={task.key} content={task.content} status={false}  onChildToParent={onChildToParent} onDeleteTasks={onDeleteTasks} />
               );
             })}
           </div>

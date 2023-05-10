@@ -6,7 +6,8 @@ interface bodyTask {
   key: number;
   content: string;
   status: boolean;
-  onDeleteTasks: Function
+  onDeleteTasks: Function,
+  onChildToParent: Function,
 }
 
 export const Task = (props: bodyTask) => {
@@ -28,12 +29,14 @@ export const Task = (props: bodyTask) => {
       return state + 1;
     });
     console.log(divCount);
+
+    
   };
 
-  
+  const data = divCount
 
   return (
-    <div
+    <div onClick={() => props.onChildToParent(data)}
       className={isActive === true ? style.taskStyleCliked : style.taskStyle}
     >
       <a onClick={handleClick}>
