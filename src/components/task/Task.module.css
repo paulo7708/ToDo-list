@@ -51,3 +51,7 @@
 .trash {
   color: var(--gray-300);
 }
+
+.trash:hover {
+  color: var(--danger);
+}

@@ -21,10 +21,21 @@ function App() {
 
     setTasks([...tasks, nextTask]);
     setNewTasks("");
-    setCount(count + 1);
-    //console.log(count)
+    //setCount(count + 1);
+    console.log(count)
+
+    setCount((state) => {
+      return state +1
+    })
   }
 
+  function onDeleteTasks(taskToDelete: string) {
+    const tasksWithoutDeleteOne = tasks.filter( task => {
+      return task.content !== taskToDelete;
+    })
+
+    setTasks(tasksWithoutDeleteOne)
+  }
 
   return (
     <>
@@ -39,6 +50,7 @@ function App() {
                 setNewTasks(event.target.value);
               }}
               value={newTasks}
+              required
             />
             <button type="submit">
               <p>Criar</p>
@@ -74,7 +86,7 @@ function App() {
 
             {tasks.map((task) => {
               return (
-                <Task key={task.key} content={task.content} status={false} />
+                <Task key={task.key} content={task.content} status={false} onDeleteTasks={onDeleteTasks} />
               );
             })}
           </div>
