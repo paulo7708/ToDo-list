@@ -10,12 +10,12 @@ interface bodyTask {
   onChildToParent: Function,
 }
 
-export const Task = (props: bodyTask) => {
+export const Task = ({ content, onDeleteTasks, onChildToParent}: bodyTask) => {
   const [divCount, setDivCount] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   function handleDeleteTasks(){
-    props.onDeleteTasks(props.content)
+    onDeleteTasks(content)
   }
 
   const handleClick = () => {
@@ -36,14 +36,14 @@ export const Task = (props: bodyTask) => {
   const data = divCount
 
   return (
-    <div onClick={() => props.onChildToParent(data)}
+    <div onClick={() => onChildToParent(data)}
       className={isActive === true ? style.taskStyleCliked : style.taskStyle}
     >
       <a onClick={handleClick}>
         <Circle className={style.circle} size={25} />
         <CheckCircle className={style.checkCircle} size={25} />
       </a>
-      <p className={style.text}>{props.content}</p>
+      <p className={style.text}>{content}</p>
       <a className={style.trash} onClick={handleDeleteTasks}>
         <Trash className={style.trash} size={20} />
       </a>
